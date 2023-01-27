@@ -1,0 +1,97 @@
+.container {
+  height: 645px;
+  width: 375px;
+  background-color: rgb(245 244 244);
+  margin-top: 100px;
+}
+
+.display {
+  padding: 5px;
+  width: 100%;
+}
+
+#screen {
+  background-color: rgb(245 244 244);
+  border: none;
+  width: 100%;
+  text-align: right;
+  font-size: 44px;
+}
+
+.btns {
+  width: 100%;
+  margin: 1px;
+  margin-bottom: 1px;
+}
+
+.btns button {
+  margin-bottom: 5px;
+  width: 65px;
+  height: 45px;
+  padding: 0px;
+  border: none;
+  background-color: #dfe1e3;
+}
+
+.dropdown-menu button {
+  margin-bottom: 1px;
+}
+
+#equal {
+  background-color: rgb(95, 95, 228);
+}
+
+#era {
+  color: black;
+  height: 3px;
+  width: 3px;
+}
+
+#tf {
+  width: 125px;
+  height: 30px;
+  font-size: 14px;
+  font-family: cursive;
+  color: black;
+  border-radius: none;
+}
+
+.f {
+  padding-right: 10px;
+  padding-left: 20px;
+  font-size: 16px;
+}
+
+#tf i {
+  padding-left: 7px;
+  padding-top: 4px;
+}
+
+.close {
+  display: none;
+}
+
+#dropdownMenuButton1 {
+  width: 125px;
+  height: 30px;
+  font-size: 14px;
+  font-family: cursive;
+  color: black;
+  border-radius: none;
+}
+
+.dropdown-item {
+  margin-left: 10px;
+  flex-wrap: wrap;
+}
+
+.dropdown-menu {
+  width: 77%;
+  border: 1px solid black;
+  margin: 0px;
+  padding: 0px;
+}
+
+.trigo1 {
+  margin-bottom: 1px;
+}
