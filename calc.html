@@ -27,21 +27,24 @@
       </form>
 
       <div class="btns">
-        <button>DEG</button>
-        <button>F-E</button>
+        <button id="dg" onclick="deg()">DEG</button>
+
+        <button id="fte" onclick="f_to_e()">F-E</button>
       </div>
 
       <div class="btns">
-        <button>MC</button>
-        <button>MR</button>
-        <button>M+</button>
-        <button>M-</button>
-        <button>MS</button>
+        <button onclick="clearmemory()">MC</button>
+        <button onclick="recallmemory()">MR</button>
+        <button onclick="plusmemory()">M+</button>
+        <button onclick="minusmemory()">M-</button>
+        <button onclick="storememory()">MS</button>
       </div>
 
-      <div class="btns">
+      <div class="btns d-flex">
         <div class="dropdown">
           <button
+            class="trignometry"
+            onclick="tri()"
             type="button"
             id="dropdownMenuButton1"
             data-bs-toggle="dropdown"
@@ -58,81 +61,246 @@
             style="height: 96px; border-radius: none"
           >
             <div class="btn-group" style="width: 100%">
-              <button class="btns" onclick="trigo_btn()">2<sup>nd</sup></button>
+              <button id="two" class="btns" onclick="trigo_btn(event)">
+                2<sup>nd</sup>
+              </button>
               <button
                 class="trigo1"
-                onclick="document.cacl.text.value=Math.sin(document.cacl.text.value* Math.PI / 180)"
+                onclick="document.cacl.text.value=x==false?Math.sin(document.cacl.text.value* Math.PI / 180):Math.sin(document.cacl.text.value)"
               >
                 sin
               </button>
 
               <button
                 class="trigo2"
-                onclick="document.cacl.text.value=Math.asin(document.cacl.text.value* Math.PI / 180)"
+                onclick="document.cacl.text.value=x==false?Math.asin(document.cacl.text.value* Math.PI / 180):Math.asin(document.cacl.text.value)"
               >
                 sin<sup>-1</sup>
               </button>
 
               <button
+                class="hypo1"
+                onclick="document.cacl.text.value=Math.sinh(document.cacl.text.value)"
+              >
+                sinh
+              </button>
+
+              <button
+                class="hypo2"
+                onclick="document.cacl.text.value=Math.asinh(document.cacl.text.value)"
+              >
+                sin<sup>-1</sup>h
+              </button>
+
+              <button
                 class="trigo1"
-                onclick="document.cacl.text.value=Math.cos(document.cacl.text.value* Math.PI / 180)"
+                onclick="document.cacl.text.value=x==false?Math.cos(document.cacl.text.value* Math.PI / 180):Math.cos(document.cacl.text.value)"
               >
                 cos
               </button>
               <button
                 class="trigo2"
-                onclick="document.cacl.text.value=Math.asin(document.cacl.text.value* Math.PI / 180)"
+                onclick="document.cacl.text.value=x==false?Math.acos(document.cacl.text.value* Math.PI / 180):Math.acos(document.cacl.text.value)"
               >
                 cos<sup>-1</sup>
               </button>
 
               <button
+                class="hypo1"
+                onclick="document.cacl.text.value=Math.cosh(document.cacl.text.value)"
+              >
+                cosh
+              </button>
+
+              <button
+                class="hypo2"
+                onclick="document.cacl.text.value=Math.acosh(document.cacl.text.value)"
+              >
+                cos<sup>-1</sup>h
+              </button>
+
+              <button
                 class="trigo1"
-                onclick="document.cacl.text.value=Math.sin(document.cacl.text.value* Math.PI / 180)/Math.cos(document.cacl.text.value* Math.PI / 180)"
+                onclick="document.cacl.text.value=x==false?Math.sin(document.cacl.text.value* Math.PI / 180)/Math.cos(document.cacl.text.value* Math.PI / 180):Math.sin(document.cacl.text.value)/Math.cos(document.cacl.text.value)"
               >
                 tan
               </button>
 
               <button
                 class="trigo2"
-                onclick="document.cacl.text.value=Math.asin(document.cacl.text.value* Math.PI / 180)"
+                onclick="document.cacl.text.value=x==false?Math.asin(document.cacl.text.value* Math.PI / 180)/Math.acos(document.cacl.text.value* Math.PI / 180):Math.asin(document.cacl.text.value)/Math.acos(document.cacl.text.value)"
               >
                 tan<sup>-1</sup>
+              </button>
+
+              <button
+                class="hypo1"
+                onclick="document.cacl.text.value=Math.sinh(document.cacl.text.value)/Math.cosh(document.cacl.text.value)"
+              >
+                tanh
+              </button>
+
+              <button
+                class="hypo2"
+                onclick="document.cacl.text.value=Math.asinh(document.cacl.text.value)/Math.acosh(document.cacl.text.value)"
+              >
+                tan<sup>-1</sup>h
               </button>
             </div>
 
             <div class="btn-group" style="width: 100%">
-              <button class="btns">hyp</button>
+              <button id="hyp_color" onclick="hypo(event)" class="btns">
+                hyp
+              </button>
               <button
                 class="trigo1"
-                onclick="document.cacl.text.value=1/Math.sin(document.cacl.text.value* Math.PI / 180)"
+                onclick="document.cacl.text.value=x==false?1/Math.sin(document.cacl.text.value* Math.PI / 180):1/Math.sin(document.cacl.text.value)"
               >
                 cosec
               </button>
+
+              <button
+                class="trigo2"
+                onclick="document.cacl.text.value=x==false?1/Math.asin(document.cacl.text.value* Math.PI / 180):1/Math.asin(document.cacl.text.value)"
+              >
+                cosec<sup>-1</sup>
+              </button>
+
+              <button
+                class="hypo1"
+                onclick="document.cacl.text.value=1/Math.sinh(document.cacl.text.value)"
+              >
+                cosech
+              </button>
+
+              <button
+                class="hypo2"
+                onclick="document.cacl.text.value=1/Math.asinh(document.cacl.text.value)"
+              >
+                cosec<sup>-1</sup>h
+              </button>
+
               <button
                 class="trigo1"
-                onclick="document.cacl.text.value=1/Math.cos(document.cacl.text.value* Math.PI / 180)"
+                onclick="document.cacl.text.value=x==false?1/Math.cos(document.cacl.text.value* Math.PI / 180):Math.cos(document.cacl.text.value)"
               >
                 sec
               </button>
+
+              <button
+                class="trigo2"
+                onclick="document.cacl.text.value=x==false?1/Math.acos(document.cacl.text.value* Math.PI / 180):Math.acos(document.cacl.text.value)"
+              >
+                sec<sup>-1</sup>
+              </button>
+
+              <button
+                class="hypo1"
+                onclick="document.cacl.text.value=1/Math.cosh(document.cacl.text.value)"
+              >
+                sech
+              </button>
+
+              <button
+                class="hypo2"
+                onclick="document.cacl.text.value=1/Math.asech(document.cacl.text.value)"
+              >
+                sec<sup>-1</sup>h
+              </button>
               <button
                 class="trigo1"
-                onclick="document.cacl.text.value=Math.cos(document.cacl.text.value* Math.PI / 180)/Math.sin(document.cacl.text.value* Math.PI / 180)"
+                onclick="document.cacl.text.value=x==false?Math.cos(document.cacl.text.value* Math.PI / 180)/Math.sin(document.cacl.text.value* Math.PI / 180):Math.cos(document.cacl.text.value)/Math.sin(document.cacl.text.value)"
               >
                 cot
+              </button>
+
+              <button
+                class="trigo2"
+                onclick="document.cacl.text.value=x==false?Math.acos(document.cacl.text.value* Math.PI / 180)/Math.asin(document.cacl.text.value* Math.PI / 180):Math.acos(document.cacl.text.value)/Math.asin(document.cacl.text.value)"
+              >
+                cot<sup>-1</sup>
+              </button>
+
+              <button
+                class="hypo1"
+                onclick="document.cacl.text.value=Math.cosh(document.cacl.text.value)/Math.sinh(document.cacl.text.value)"
+              >
+                coth
+              </button>
+
+              <button
+                class="hypo2"
+                onclick="document.cacl.text.value=Math.acosh(document.cacl.text.value)/Math.asinh(document.cacl.text.value)"
+              >
+                cot<sup>-1</sup>h
               </button>
             </div>
           </ul>
         </div>
 
-        <button id="tf">
-          <div class="function d-flex">
+        <div class="dropdown">
+          <button
+            class="function d-flex"
+            type="button"
+            id="dropdownMenuButton"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
             <div class="f"><i>f</i></div>
             <div class="fun">
-              Function<i class="fa-solid fa-angle-down"></i>
+              Function<i
+                class="fa-solid fa-angle-down"
+                style="padding-left: 7px"
+              ></i>
             </div>
-          </div>
-        </button>
+          </button>
+          <ul
+            class="dropdown-menu"
+            aria-labelledby="dropdownMenuButton"
+            style="height: 96px; width: auto; border-radius: none"
+          >
+            <div class="btn-group">
+              <button
+                class="f1"
+                onclick="document.cacl.text.value=Math.abs(document.cacl.text.value)"
+              >
+                |x|
+              </button>
+              <button
+                class="f1"
+                onclick="document.cacl.text.value=Math.floor(document.cacl.text.value)"
+              >
+                ⌊x⌋
+              </button>
+              <button
+                class="f1"
+                onclick="document.cacl.text.value=Math.ceil(document.cacl.text.value)"
+              >
+                ⌈x⌉
+              </button>
+            </div>
+            <div class="btn-group">
+              <button
+                class="f1"
+                onclick="document.cacl.text.value=Math.random(1)"
+              >
+                rand
+              </button>
+              <button
+                class="f1"
+                onclick="document.cacl.text.value=dms(document.cacl.text.value)"
+              >
+                ->dms
+              </button>
+              <button
+                class="f1"
+                onclick="document.cacl.text.value=dd(document.cacl.text.value)"
+              >
+                ->deg
+              </button>
+            </div>
+          </ul>
+        </div>
       </div>
 
       <div class="btns">
@@ -281,7 +449,7 @@
         <button onclick="document.cacl.text.value+='0'">0</button>
         <button onclick="document.cacl.text.value+='.'">.</button>
         <button
-          onclick="document.cacl.text.value=eval(document.cacl.text.value)"
+          onclick="document.cacl.text.value=f==1?eval(document.cacl.text.value).toExponential():eval(document.cacl.text.value)"
           class="equal"
           id="equal"
         >
@@ -291,6 +459,30 @@
     </div>
 
     <script type="text/javascript">
+      let memory = "";
+      function storememory() {
+        memory = document.getElementById("screen").value;
+        console.log(memory);
+      }
+
+      function recallmemory() {
+        document.getElementById("screen").value = memory;
+      }
+
+      function plusmemory() {
+        memory += "+" + document.getElementById("screen").value;
+        memory = eval(memory);
+      }
+
+      function minusmemory() {
+        memory += "-" + document.getElementById("screen").value;
+        memory = eval(memory);
+      }
+
+      function clearmemory() {
+        memory = "";
+      }
+
       function del() {
         var x = document.getElementById("screen").value;
         document.getElementById("screen").value = x.substr(0, x.length - 1);
@@ -301,7 +493,17 @@
         for (var a = 1; a <= d; a++) {
           m *= a;
         }
-        document.getElementById("screen").value = mul;
+        document.getElementById("screen").value = m;
+      }
+      let f = 0;
+      function f_to_e() {
+        if (f == 0) {
+          document.getElementById("fte").style.backgroundColor = "blue";
+          f = 1;
+        } else {
+          document.getElementById("fte").style.backgroundColor = "#dfe1e3";
+          f = 0;
+        }
       }
 
       function change() {
@@ -314,7 +516,7 @@
         document.getElementById("screen").value = x;
       }
 
-      let y = 1;
+      let y = 0;
       function second_btn() {
         if (y) {
           for (let element of document.getElementsByClassName("open")) {
@@ -335,24 +537,138 @@
         }
       }
 
-      function trigo_btn() {
-        if (y) {
-          for (let element of document.getElementsByClassName("trigo2")) {
-            element.style.display = "none";
+      function tri() {
+        for (let element of document.getElementsByClassName("hypo2")) {
+          element.style.display = "none";
+        }
+        for (let element of document.getElementsByClassName("hypo1")) {
+          element.style.display = "none";
+        }
+
+        for (let element of document.getElementsByClassName("trigo2")) {
+          element.style.display = "none";
+        }
+        for (let element of document.getElementsByClassName("trigo1")) {
+          element.style.display = "inline-block";
+        }
+      }
+
+      let h = 0;
+
+      function hypo(event) {
+        event.stopPropagation();
+        for (let element of document.getElementsByClassName("hypo2")) {
+          element.style.display = "none";
+        }
+        for (let element of document.getElementsByClassName("hypo1")) {
+          element.style.display = "none";
+        }
+        for (let element of document.getElementsByClassName("trigo2")) {
+          element.style.display = "none";
+        }
+        for (let element of document.getElementsByClassName("trigo1")) {
+          element.style.display = "none";
+        }
+        if (h == 0) {
+          if (y == 1) {
+            for (let element of document.getElementsByClassName("hypo2")) {
+              element.style.display = "inline-block";
+            }
+          } else {
+            for (let element of document.getElementsByClassName("hypo1")) {
+              element.style.display = "inline-block";
+            }
           }
-          for (let element of document.getElementsByClassName("trigo1")) {
-            element.style.display = "inline-block";
+
+          h = 1;
+          document.getElementById("hyp_color").style.backgroundColor = "blue";
+        } else {
+          if (y == 1) {
+            for (let element of document.getElementsByClassName("trigo2")) {
+              element.style.display = "inline-block";
+            }
+          } else {
+            for (let element of document.getElementsByClassName("trigo1")) {
+              element.style.display = "inline-block";
+            }
+          }
+          h = 0;
+          document.getElementById("hyp_color").style.backgroundColor =
+            "#dfe1e3";
+        }
+      }
+
+      function trigo_btn(event) {
+        event.stopPropagation();
+        for (let element of document.getElementsByClassName("hypo2")) {
+          element.style.display = "none";
+        }
+        for (let element of document.getElementsByClassName("hypo1")) {
+          element.style.display = "none";
+        }
+        for (let element of document.getElementsByClassName("trigo2")) {
+          element.style.display = "none";
+        }
+        for (let element of document.getElementsByClassName("trigo1")) {
+          element.style.display = "none";
+        }
+        if (y == 0) {
+          if (h == 1) {
+            for (let element of document.getElementsByClassName("hypo2")) {
+              element.style.display = "inline-block";
+            }
+          } else {
+            for (let element of document.getElementsByClassName("trigo2")) {
+              element.style.display = "inline-block";
+            }
+          }
+
+          y = 1;
+          document.getElementById("two").style.backgroundColor = "blue";
+        } else {
+          if (h == 1) {
+            for (let element of document.getElementsByClassName("hypo1")) {
+              element.style.display = "inline-block";
+            }
+          } else {
+            for (let element of document.getElementsByClassName("trigo1")) {
+              element.style.display = "inline-block";
+            }
           }
           y = 0;
-        } else {
-          for (let element of document.getElementsByClassName("trigo1")) {
-            element.style.display = "none";
-          }
-          for (let element of document.getElementsByClassName("trigo2")) {
-            element.style.display = "inline-block";
-          }
-          y = 1;
+          document.getElementById("two").style.backgroundColor = "#dfe1e3";
         }
+      }
+      let x = false;
+      function deg() {
+        if (x == false) {
+          document.getElementById("dg").innerHTML = "RAD";
+          x = true;
+        } else {
+          document.getElementById("dg").innerHTML = "DEG";
+          x = false;
+        }
+      }
+
+      function dms(D) {
+        D = parseFloat(D);
+        return [
+          0 | D,
+          ".",
+          0 | (((D = (D < 0 ? -D : D) + 1e-4) % 1) * 60),
+          ".",
+          0 | (((D * 60) % 1) * 60),
+        ].join("");
+      }
+
+      function dd(dms) {
+        var d = dms.split(".");
+        var m = d[1];
+        var s = d[2];
+        var dn = parseFloat(d[0]);
+        var mn = parseFloat(m);
+        var sn = parseFloat(s);
+        return dn + mn / 60 + sn / 3600;
       }
     </script>
   </body>

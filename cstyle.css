@@ -47,24 +47,27 @@
   width: 3px;
 }
 
-#tf {
-  width: 125px;
-  height: 30px;
-  font-size: 14px;
-  font-family: cursive;
-  color: black;
-  border-radius: none;
-}
-
 .f {
   padding-right: 10px;
   padding-left: 20px;
   font-size: 16px;
+  padding-top: 3px;
+}
+
+.fun {
+  padding-top: 5px;
 }
 
 #tf i {
   padding-left: 7px;
-  padding-top: 4px;
+  padding-top: 3px;
+}
+
+#f1 {
+  margin: 1px;
+}
+#f2 {
+  margin: 1px;
 }
 
 .close {
@@ -72,7 +75,17 @@
 }
 
 #dropdownMenuButton1 {
-  width: 125px;
+  width: 135px;
+  height: 30px;
+  font-size: 14px;
+  font-family: cursive;
+  color: black;
+  border-radius: none;
+}
+
+#dropdownMenuButton {
+  margin-left: 4px;
+  width: 135px;
   height: 30px;
   font-size: 14px;
   font-family: cursive;
@@ -93,5 +106,21 @@
 }
 
 .trigo1 {
-  margin-bottom: 1px;
+  margin: 1px;
+}
+
+.trigo2 {
+  margin: 1px;
+}
+
+.hypo1 {
+  margin: 1px;
+}
+
+.hypo2 {
+  margin: 1px;
+}
+
+.f1 {
+  margin: 1px;
 }
