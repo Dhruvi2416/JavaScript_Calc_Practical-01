@@ -1,12 +1,14 @@
 .container {
-  height: 645px;
+  height: 615px;
   width: 375px;
-  background-color: rgb(245 244 244);
+  background-color: #c0c0c0;
   margin-top: 100px;
+  border: 1px solid black;
 }
 
 .display {
   padding: 5px;
+  padding-left: 1px;
   width: 100%;
 }
 
@@ -30,15 +32,25 @@
   height: 45px;
   padding: 0px;
   border: none;
-  background-color: #dfe1e3;
+  background-color: #dcdcdc;
+}
+
+.btns button:hover {
+  border: 1px solid black;
 }
 
 .dropdown-menu button {
   margin-bottom: 1px;
 }
 
+.btn-group button {
+  padding: 0px;
+  border-radius: 3px;
+  margin: 0px 2px 4px 0px;
+}
+
 #equal {
-  background-color: rgb(95, 95, 228);
+  background-color: #4169e1;
 }
 
 #era {
@@ -78,7 +90,7 @@
   width: 135px;
   height: 30px;
   font-size: 14px;
-  font-family: cursive;
+
   color: black;
   border-radius: none;
 }
@@ -88,7 +100,7 @@
   width: 135px;
   height: 30px;
   font-size: 14px;
-  font-family: cursive;
+
   color: black;
   border-radius: none;
 }
@@ -107,10 +119,12 @@
 
 .trigo1 {
   margin: 1px;
+  margin-bottom: 0px;
 }
 
 .trigo2 {
   margin: 1px;
+  margin-bottom: 0px;
 }
 
 .hypo1 {
