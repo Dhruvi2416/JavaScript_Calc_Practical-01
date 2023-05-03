@@ -5,6 +5,7 @@ function storememory() {
   // ! to strictly tell that document of HTML is not null
   //HTMLInputElement because value exist only on Input element of HTML not all HTML element
   //has property value
+  //document.getElementById will return object of HTMLElement type which does not have value property
   memory = (document.getElementById("screen") as HTMLInputElement).value;
 
   console.log(memory);
@@ -50,6 +51,8 @@ function fact(d: number) {
 let f = 0;
 function f_to_e() {
   if (f == 0) {
+    //typescript thinks  fte might not be present in HTML doc so we are forcefully telling
+    // typescript will not get null value
     document.getElementById("fte")!.style.backgroundColor = "#4169e1";
     f = 1;
   } else {
@@ -74,21 +77,22 @@ function change() {
 // logic of second button
 
 let y = 0;
+
 function second_btn() {
   if (y) {
-    for (let element of document.getElementsByClassName("open") as any) {
+    for (let element of document.getElementsByClassName("open") ) {
       //element is forced to be HTMLElement as it was first only Element type
       (element as HTMLElement).style.display = "none";
     }
-    for (let element of document.getElementsByClassName("close") as any) {
+    for (let element of document.getElementsByClassName("close") ) {
       (element as HTMLElement).style.display = "inline-block";
     }
     y = 0;
   } else {
-    for (let element of document.getElementsByClassName("close") as any) {
+    for (let element of document.getElementsByClassName("close") ) {
       (element as HTMLElement).style.display = "none";
     }
-    for (let element of document.getElementsByClassName("open") as any) {
+    for (let element of document.getElementsByClassName("open") ) {
       (element as HTMLElement).style.display = "inline-block";
     }
     y = 1;
@@ -97,17 +101,17 @@ function second_btn() {
 //logic of trignometic functions
 
 function tri() {
-  for (let element of document.getElementsByClassName("hypo2") as any) {
+  for (let element of document.getElementsByClassName("hypo2") ) {
     (element as HTMLElement).style.display = "none";
   }
-  for (let element of document.getElementsByClassName("hypo1") as any) {
+  for (let element of document.getElementsByClassName("hypo1") ) {
     (element as HTMLElement).style.display = "none";
   }
 
-  for (let element of document.getElementsByClassName("trigo2") as any) {
+  for (let element of document.getElementsByClassName("trigo2") ) {
     (element as HTMLElement).style.display = "none";
   }
-  for (let element of document.getElementsByClassName("trigo1") as any) {
+  for (let element of document.getElementsByClassName("trigo1") ) {
     (element as HTMLElement).style.display = "inline-block";
   }
 }
@@ -116,25 +120,25 @@ let h = 0;
 
 function hypo(event: Event) {
   event.stopPropagation();
-  for (let element of document.getElementsByClassName("hypo2") as any) {
+  for (let element of document.getElementsByClassName("hypo2") ) {
     (element as HTMLElement).style.display = "none";
   }
-  for (let element of document.getElementsByClassName("hypo1") as any) {
+  for (let element of document.getElementsByClassName("hypo1") ) {
     (element as HTMLElement).style.display = "none";
   }
-  for (let element of document.getElementsByClassName("trigo2") as any) {
+  for (let element of document.getElementsByClassName("trigo2") ) {
     (element as HTMLElement).style.display = "none";
   }
-  for (let element of document.getElementsByClassName("trigo1") as any) {
+  for (let element of document.getElementsByClassName("trigo1") ) {
     (element as HTMLElement).style.display = "none";
   }
   if (h == 0) {
     if (y == 1) {
-      for (let element of document.getElementsByClassName("hypo2") as any) {
+      for (let element of (document.getElementsByClassName("hypo2"))) {
         (element as HTMLElement).style.display = "inline-block";
       }
     } else {
-      for (let element of document.getElementsByClassName("hypo1") as any) {
+      for (let element of document.getElementsByClassName("hypo1")) {
         (element as HTMLElement).style.display = "inline-block";
       }
     }
@@ -143,11 +147,11 @@ function hypo(event: Event) {
     document.getElementById("hyp_color")!.style.backgroundColor = "#4169e1";
   } else {
     if (y == 1) {
-      for (let element of document.getElementsByClassName("trigo2") as any) {
+      for (let element of document.getElementsByClassName("trigo2") ) {
         (element as HTMLElement).style.display = "inline-block";
       }
     } else {
-      for (let element of document.getElementsByClassName("trigo1") as any) {
+      for (let element of document.getElementsByClassName("trigo1") ) {
         (element as HTMLElement).style.display = "inline-block";
       }
     }
@@ -158,25 +162,25 @@ function hypo(event: Event) {
 
 function trigo_btn(event: Event) {
   event.stopPropagation();
-  for (let element of document.getElementsByClassName("hypo2") as any) {
+  for (let element of document.getElementsByClassName("hypo2") ) {
     (element as HTMLElement).style.display = "none";
   }
-  for (let element of document.getElementsByClassName("hypo1") as any) {
+  for (let element of document.getElementsByClassName("hypo1") ) {
     (element as HTMLElement).style.display = "none";
   }
-  for (let element of document.getElementsByClassName("trigo2") as any) {
+  for (let element of document.getElementsByClassName("trigo2") ) {
     (element as HTMLElement).style.display = "none";
   }
-  for (let element of document.getElementsByClassName("trigo1") as any) {
+  for (let element of document.getElementsByClassName("trigo1")  ) {
     (element as HTMLElement).style.display = "none";
   }
   if (y == 0) {
     if (h == 1) {
-      for (let element of document.getElementsByClassName("hypo2") as any) {
+      for (let element of document.getElementsByClassName("hypo2") ) {
         (element as HTMLElement).style.display = "inline-block";
       }
     } else {
-      for (let element of document.getElementsByClassName("trigo2") as any) {
+      for (let element of document.getElementsByClassName("trigo2") ) {
         (element as HTMLElement).style.display = "inline-block";
       }
     }
@@ -185,11 +189,11 @@ function trigo_btn(event: Event) {
     document.getElementById("two")!.style.backgroundColor = "#4169e1";
   } else {
     if (h == 1) {
-      for (let element of document.getElementsByClassName("hypo1") as any) {
+      for (let element of document.getElementsByClassName("hypo1") ) {
         (element as HTMLElement).style.display = "inline-block";
       }
     } else {
-      for (let element of document.getElementsByClassName("trigo1") as any) {
+      for (let element of document.getElementsByClassName("trigo1") ) {
         (element as HTMLElement).style.display = "inline-block";
       }
     }
