@@ -7,7 +7,7 @@
 3. If you haven't yet installed typescript in your VS Code editor then write command **npm install -g typescript**.  This will install typescript globally in your editor.
 **OR** If you want to run locally, command **npm i typescript --save-dev**
 
-4. Then **tsc --init** for installing typescript config file. **OR** If you have installed typescript locally type command **npx tsc --init**
+4. Then **tsc --init** for initializing typescript config file. **OR** If you have installed typescript locally type command **npx tsc --init**
 5. Run **tsc** command to compile ts file in js file.
 6. Now run js file with node calc.js (NOTE: Here I have already uploaded js file no need to compile it again. This is necessary only if you are changing the code :smiley:)
 7. To get the whole project run **Go Live** in your editor
